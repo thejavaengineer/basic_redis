@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.thejavaengineer'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Redis
+    implementation 'redis.clients:jedis:4.4.3'
+
+    // MySQL Database
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    // Logging (optional)
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
+
+    // JUnit Testing
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
